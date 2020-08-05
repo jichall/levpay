@@ -10,7 +10,7 @@ all:
 	$(CC) build -o $(BIN_FOLDER)/$(BIN_NAME) $(SOURCES)
 
 tests:
-	$(CC) test
+	$(CC) test -v $(SOURCE_FOLDER)
 
 
 vars:
