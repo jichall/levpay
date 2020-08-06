@@ -30,6 +30,9 @@ func main() {
 	host := os.Getenv("HOST")
 	port := os.Getenv("PORT")
 
+	// 4106895309380853
+	token := os.Getenv("API_TOKEN")
+
 	url := os.Getenv("DATABASE_URL")
 
 	serve(host, port)
