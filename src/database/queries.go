@@ -1,7 +1,7 @@
 package database
 
 const (
-	AddSuper = `
+	queryAddSuper = `
 		INSERT INTO TB_SUPER (
 			SUPER_ID,
 			SUPER_UUID,
@@ -26,19 +26,19 @@ const (
 		) RETURNING SUPER_ID
 	`
 
-	RemoveSuper = `
+	queryRemoveSuper = `
 		DELETE FROM TB_SUPER WHERE SUPER_UUID = $1
 	`
 
-	FilterNameSuper = `
+	queryFilterNameSuper = `
 		SELECT * FROM TB_SUPER WHERE SUPER_NAME = $1
 	`
 
-	FilterUUIDSuper = `
+	queryFilterUUIDSuper = `
 		SELECT * FROM TB_SUPER WHERE SUPER_UUID = $1
 	`
 
-	SelectSupers = `
+	querySelectSupers = `
 		SELECT * FROM TB_SUPER
 	`
 )
