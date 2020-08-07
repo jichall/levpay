@@ -1,10 +1,7 @@
 package database
 
-// Query is a type that represents a database query
-type Query string
-
 const (
-	queryAddSuper Query = `
+	AddSuper = `
 		INSERT INTO TB_SUPER (
 			SUPER_ID,
 			SUPER_UUID,
@@ -29,19 +26,19 @@ const (
 		) RETURNING SUPER_ID
 	`
 
-	queryRemoveSuper Query = `
+	RemoveSuper = `
 		DELETE FROM TB_SUPER WHERE SUPER_UUID = $1
 	`
 
-	queryFilterNameSuper Query = `
-		SELECT FROM TB_SUPER WHERE SUPER_NAME = $1
+	FilterNameSuper = `
+		SELECT * FROM TB_SUPER WHERE SUPER_NAME = $1
 	`
 
-	queryFilterUUIDSuper Query = `
-		SELECT FROM TB_SUPER WHERE SUPER_UUID = $1
+	FilterUUIDSuper = `
+		SELECT * FROM TB_SUPER WHERE SUPER_UUID = $1
 	`
 
-	querySelectSupers Query = `
-		SELECT FROM TB_SUPER
+	SelectSupers = `
+		SELECT * FROM TB_SUPER
 	`
 )
