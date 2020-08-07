@@ -23,6 +23,8 @@ func main() {
 	prod := os.Getenv("PROD")
 
 	url := os.Getenv("DATABASE_URL")
+	// The API token
+	token = os.Getenv("TOKEN")
 
 	// to prevent variable shadowing when initializing the logger
 	var err error
