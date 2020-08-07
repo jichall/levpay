@@ -7,7 +7,7 @@ import (
 	"github.com/jackc/pgx/v4"
 )
 
-func query(query string, arguments []interface{}) (pgx.Rows, error) {
+func query(query string, arguments ...interface{}) (pgx.Rows, error) {
 	conn, err := pool.Acquire(context.Background())
 
 	if err != nil {
@@ -28,7 +28,7 @@ func query(query string, arguments []interface{}) (pgx.Rows, error) {
 	return results, nil
 }
 
-func execute(query string, arguments []interface{}) pgconn.CommandTag {
+func execute(query string, arguments ...interface{}) pgconn.CommandTag {
 	var result pgconn.CommandTag
 
 	conn, err := pool.Acquire(context.Background())
