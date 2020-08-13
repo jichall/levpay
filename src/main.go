@@ -7,6 +7,7 @@ import (
 	"syscall"
 
 	db "github.com/jichall/levpay/src/database"
+	"github.com/jichall/levpay/src/superapi"
 	"github.com/rafaelcn/jeolgyu"
 )
 
@@ -18,35 +19,25 @@ func main() {
 	// get the default environment settings to initialize the application
 	host := os.Getenv("HOST")
 	port := os.Getenv("PORT")
-	// If set this will set the software mode to production instead of
-	// development.
-	prod := os.Getenv("PROD")
 
 	url := os.Getenv("DATABASE_URL")
+
 	// The API token
-	token = os.Getenv("TOKEN")
+	token := os.Getenv("TOKEN")
+	superapi.SetToken(token)
 
 	// to prevent variable shadowing when initializing the logger
 	var err error
-	// this decreases app performance and can be easily changed when in a
-	// production environment.
-	tp := jeolgyu.SinkBoth
-
-	if len(prod) > 0 {
-		tp = jeolgyu.SinkFile
-	}
 
 	logger, err = jeolgyu.New(jeolgyu.Settings{
-		Filename: "application",
-		Filepath: "log",
-		SinkType: tp,
+		SinkType: jeolgyu.SinkOutput,
 	})
 
 	if err != nil {
 		log.Fatalf("failed to initialize default logger, reason %v", err)
 	}
 
-	db.Init(prod)
+	db.Init()
 	db.Connect(url)
 	defer db.Close()
 
