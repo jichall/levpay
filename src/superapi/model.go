@@ -6,9 +6,18 @@ type (
 		ID string `json:"id"`
 		Name string `json:"name"`
 
+		// The following fields are described on other structs within this file.
+
 		Image Image `json:"image"`
+		Biography Biography `json:"biography"`
 		Powerstats Powerstats `json:"powerstats"`
 		Connections Connections `json:"connections"`
+	}
+
+	// Biography ...
+	Biography struct {
+		FullName string `json:"full-name"`
+		Alignment string `json:"alignment"`
 	}
 
 	// Powerstats represents the stats of a hero
