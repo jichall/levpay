@@ -38,9 +38,9 @@ The API is RESTful and uses HTTP verbs and status code heavily (as one would
 expect from such API). The following routes describes the resources that can be
 used.
 
-|   URL   |   Methods    |                       Description                         |
-|---------|--------------|-----------------------------------------------------------|
-| /super/ | POST, DELETE | Responsible for adding or remove a superhero from the API |
-| /super/ | GET          | Responsible for returning a super given a param           |
-| /supers | GET          | Responsible for returning supers given a param            |
+|   URL   |   Methods    |                       Description                           |
+|---------|--------------|-------------------------------------------------------------|
+| /super/ | POST, DELETE | Responsible for adding or removing a superhero from the API |
+| /super/ | GET          | Responsible for returning a super given a param             |
+| /supers | GET          | Responsible for returning supers given a param              |
 
